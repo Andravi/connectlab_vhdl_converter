@@ -1,0 +1,183 @@
+{
+  "id": "15b3ebeb-ee37-496f-aaaa-697054515eb0",
+  "title": "Teste",
+  "data": {
+    "nodes": [
+      {
+        "id": 0,
+        "nodeType": 100,
+        "state": false
+      },
+      {
+        "id": 2,
+        "nodeType": 0,
+        "state": false
+      },
+      {
+        "id": 6,
+        "nodeType": 100,
+        "state": false
+      },
+      {
+        "id": 8,
+        "nodeType": 200,
+        "state": false
+      }
+    ],
+    "connections": [
+      {
+        "id": 10,
+        "connectedTo": {
+          "start": {
+            "slotId": 5,
+            "nodeId": 2
+          },
+          "end": {
+            "slotId": 9,
+            "nodeId": 8
+          }
+        }
+      },
+      {
+        "id": 11,
+        "connectedTo": {
+          "start": {
+            "slotId": 7,
+            "nodeId": 6
+          },
+          "end": {
+            "slotId": 3,
+            "nodeId": 2
+          }
+        }
+      },
+      {
+        "id": 12,
+        "connectedTo": {
+          "start": {
+            "slotId": 1,
+            "nodeId": 0
+          },
+          "end": {
+            "slotId": 4,
+            "nodeId": 2
+          }
+        }
+      }
+    ],
+    "slots": [
+      {
+        "id": 1,
+        "parentId": 0,
+        "slotIdAtParent": 0,
+        "connectionIds": [
+          12
+        ],
+        "inSlot": false
+      },
+      {
+        "id": 3,
+        "parentId": 2,
+        "slotIdAtParent": 0,
+        "connectionIds": [
+          11
+        ],
+        "inSlot": true
+      },
+      {
+        "id": 4,
+        "parentId": 2,
+        "slotIdAtParent": 1,
+        "connectionIds": [
+          12
+        ],
+        "inSlot": true
+      },
+      {
+        "id": 5,
+        "parentId": 2,
+        "slotIdAtParent": 2,
+        "connectionIds": [
+          10
+        ],
+        "inSlot": false
+      },
+      {
+        "id": 7,
+        "parentId": 6,
+        "slotIdAtParent": 0,
+        "connectionIds": [
+          11
+        ],
+        "inSlot": false
+      },
+      {
+        "id": 9,
+        "parentId": 8,
+        "slotIdAtParent": 0,
+        "connectionIds": [
+          10
+        ],
+        "inSlot": true
+      }
+    ]
+  },
+  "signal": [
+    {
+      "id": 0,
+      "data": {
+        "output": false,
+        "signalFrom": [],
+        "signalTo": [
+          2
+        ],
+        "nodeType": 100
+      }
+    },
+    {
+      "id": 2,
+      "data": {
+        "output": false,
+        "signalFrom": [
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "signalTo": [
+          8
+        ],
+        "nodeType": 0
+      }
+    },
+    {
+      "id": 6,
+      "data": {
+        "output": false,
+        "signalFrom": [],
+        "signalTo": [
+          2
+        ],
+        "nodeType": 100
+      }
+    },
+    {
+      "id": 8,
+      "data": {
+        "output": false,
+        "signalFrom": [
+          [
+            0,
+            2
+          ]
+        ],
+        "signalTo": [],
+        "nodeType": 200
+      }
+    }
+  ]
+}

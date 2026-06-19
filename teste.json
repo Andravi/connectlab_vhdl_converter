@@ -1,0 +1,341 @@
+{
+    "id": "e9712f69-74c6-4773-9eb3-61b02fdace9e",
+    "title": "Teste",
+    "data": {
+        "nodes": [
+            {
+                "id": 0,
+                "componentType": 2,
+                "nodeType": 4,
+                "position": {
+                    "x": 373,
+                    "y": 232
+                },
+                "slotIds": [
+                    1,
+                    2,
+                    3
+                ],
+                "state": false
+            },
+            {
+                "id": 4,
+                "componentType": 5,
+                "nodeType": 100,
+                "position": {
+                    "x": 143,
+                    "y": 181
+                },
+                "slotIds": [
+                    5
+                ],
+                "state": false
+            },
+            {
+                "id": 6,
+                "componentType": 5,
+                "nodeType": 100,
+                "position": {
+                    "x": 111,
+                    "y": 315
+                },
+                "slotIds": [
+                    7
+                ],
+                "state": false
+            },
+            {
+                "id": 10,
+                "componentType": 6,
+                "nodeType": 200,
+                "position": {
+                    "x": 538,
+                    "y": 152
+                },
+                "slotIds": [
+                    11
+                ],
+                "state": false
+            }
+        ],
+        "connections": [
+            {
+                "id": 8,
+                "componentType": 1,
+                "position": {
+                    "x": 217,
+                    "y": 206
+                },
+                "endPosition": {
+                    "x": 369,
+                    "y": 247
+                },
+                "anchors": [
+                    {
+                        "x": 0.5,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    }
+                ],
+                "connectedTo": {
+                    "start": {
+                        "slotId": 5,
+                        "nodeId": 4
+                    },
+                    "end": {
+                        "slotId": 1,
+                        "nodeId": 0
+                    }
+                }
+            },
+            {
+                "id": 9,
+                "componentType": 1,
+                "position": {
+                    "x": 185,
+                    "y": 340
+                },
+                "endPosition": {
+                    "x": 369,
+                    "y": 267
+                },
+                "anchors": [
+                    {
+                        "x": 0.5,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    }
+                ],
+                "connectedTo": {
+                    "start": {
+                        "slotId": 7,
+                        "nodeId": 6
+                    },
+                    "end": {
+                        "slotId": 2,
+                        "nodeId": 0
+                    }
+                }
+            },
+            {
+                "id": 12,
+                "componentType": 1,
+                "position": {
+                    "x": 465,
+                    "y": 257
+                },
+                "endPosition": {
+                    "x": 561,
+                    "y": 218
+                },
+                "anchors": [
+                    {
+                        "x": 0.5,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    }
+                ],
+                "connectedTo": {
+                    "start": {
+                        "slotId": 3,
+                        "nodeId": 0
+                    },
+                    "end": {
+                        "slotId": 11,
+                        "nodeId": 10
+                    }
+                }
+            }
+        ],
+        "slots": [
+            {
+                "id": 1,
+                "componentType": 4,
+                "position": {
+                    "x": -4,
+                    "y": 15
+                },
+                "parentId": 0,
+                "slotIdAtParent": 0,
+                "connectionIds": [
+                    8
+                ],
+                "inSlot": true,
+                "color": "#0880FF",
+                "colorActive": "#FF0000",
+                "radius": 4,
+                "attractionRadius": 12
+            },
+            {
+                "id": 2,
+                "componentType": 4,
+                "position": {
+                    "x": -4,
+                    "y": 35
+                },
+                "parentId": 0,
+                "slotIdAtParent": 1,
+                "connectionIds": [
+                    9
+                ],
+                "inSlot": true,
+                "color": "#0880FF",
+                "colorActive": "#FF0000",
+                "radius": 4,
+                "attractionRadius": 12
+            },
+            {
+                "id": 3,
+                "componentType": 4,
+                "position": {
+                    "x": 92,
+                    "y": 25
+                },
+                "parentId": 0,
+                "slotIdAtParent": 2,
+                "connectionIds": [
+                    12
+                ],
+                "inSlot": false,
+                "color": "#0880FF",
+                "colorActive": "#FF0000",
+                "radius": 4,
+                "attractionRadius": 12
+            },
+            {
+                "id": 5,
+                "componentType": 4,
+                "position": {
+                    "x": 74,
+                    "y": 25
+                },
+                "parentId": 4,
+                "slotIdAtParent": 0,
+                "connectionIds": [
+                    8
+                ],
+                "inSlot": false,
+                "color": "#0880FF",
+                "colorActive": "#FF0000",
+                "radius": 4,
+                "attractionRadius": 12
+            },
+            {
+                "id": 7,
+                "componentType": 4,
+                "position": {
+                    "x": 74,
+                    "y": 25
+                },
+                "parentId": 6,
+                "slotIdAtParent": 0,
+                "connectionIds": [
+                    9
+                ],
+                "inSlot": false,
+                "color": "#0880FF",
+                "colorActive": "#FF0000",
+                "radius": 4,
+                "attractionRadius": 12
+            },
+            {
+                "id": 11,
+                "componentType": 4,
+                "position": {
+                    "x": 23,
+                    "y": 66
+                },
+                "parentId": 10,
+                "slotIdAtParent": 0,
+                "connectionIds": [
+                    12
+                ],
+                "inSlot": true,
+                "color": "#0880FF",
+                "colorActive": "#FF0000",
+                "radius": 4,
+                "attractionRadius": 12
+            }
+        ],
+        "texts": []
+    },
+    "signal": [
+        {
+            "id": 0,
+            "data": {
+                "output": false,
+                "signalFrom": [
+                    [
+                        0,
+                        4
+                    ],
+                    [
+                        1,
+                        6
+                    ]
+                ],
+                "signalTo": [
+                    10
+                ],
+                "nodeType": 4
+            }
+        },
+        {
+            "id": 4,
+            "data": {
+                "output": false,
+                "signalFrom": [],
+                "signalTo": [
+                    0
+                ],
+                "nodeType": 100
+            }
+        },
+        {
+            "id": 6,
+            "data": {
+                "output": false,
+                "signalFrom": [],
+                "signalTo": [
+                    0
+                ],
+                "nodeType": 100
+            }
+        },
+        {
+            "id": 10,
+            "data": {
+                "output": false,
+                "signalFrom": [
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "signalTo": [],
+                "nodeType": 200
+            }
+        }
+    ]
+}
