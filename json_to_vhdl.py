@@ -68,19 +68,19 @@ def json_to_vhdl(input_json: str):
 
     # Gerar entity
     entity_name = data.get('title', 'circuito').replace(' ', '_')
-    vhdl = f"library IEEE;\n"
-    vhdl += f"use IEEE.STD_LOGIC_1164.ALL;\n\n"
+    vhdl = f"library ieee;\n"
+    vhdl += f"use ieee.std_logic_1164.all;\n\n"
     vhdl += f"entity {entity_name} is\n"
     vhdl += f"    Port (\n"
 
     port_lines = []
     for inp in inputs:
-        port_lines.append(f"        {signal_name(inp)} : in  STD_LOGIC")
+        port_lines.append(f"        {signal_name(inp)} : in  std_logic")
     for out_id, width in outputs:
         if width == 1:
-            port_lines.append(f"        {signal_name(out_id)} : out STD_LOGIC")
+            port_lines.append(f"        {signal_name(out_id)} : out std_logic")
         else:
-            port_lines.append(f"        {signal_name(out_id)} : out STD_LOGIC_VECTOR({width-1} downto 0)")
+            port_lines.append(f"        {signal_name(out_id)} : out std_logic_vector({width-1} downto 0)")
     vhdl += ";\n".join(port_lines) + "\n"
     vhdl += f"    );\n"
     vhdl += f"end {entity_name};\n\n"

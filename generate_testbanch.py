@@ -89,7 +89,7 @@ def generate_testbench(csv_file, entity_name, output_file=None):
     
     # Finaliza
     vhdl.append("")
-    vhdl.append("        report \"✅ Todos os testes passaram!\";")
+    vhdl.append("        report \"Todos os testes passaram!\";")
     vhdl.append("        std.env.finish;")
     vhdl.append("    end process;")
     vhdl.append("")
@@ -99,7 +99,7 @@ def generate_testbench(csv_file, entity_name, output_file=None):
     with open(output_file, 'w') as f:
         f.write("\n".join(vhdl))
     
-    print(f"✅ Testbench gerado: {output_file}")
+    print(f"Testbench gerado: {output_file}")
     print(f"   {len(rows)} testes gerados a partir de {csv_file}")
 
 def extract_entity_name(file_path):

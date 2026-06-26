@@ -1,4 +1,0 @@
-v 4
-file . "../simulacoes/or_simples.vhdl" "d873895ba4f97fc5b3625713c1ad1d7c42382903" "20260619210042.471":
-  entity teste at 1( 0) + 0 on 13;
-  architecture behavioral of teste at 12( 190) + 0 on 14;
