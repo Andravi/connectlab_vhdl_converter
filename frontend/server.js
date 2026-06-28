@@ -241,7 +241,13 @@ app.post('/tb_generate', upload.fields([
 
 // Endpoint para baixar arquivo
 app.get('/download/:filename', (req, res) => {
-    const filename = 'uploads/'+ req.params.filename;
+    let filename = req.params.filename;
+
+    // Se o arquivo NÃO terminar com 'tb.vhdl', adiciona o prefixo 'uploads/'
+    if (!filename.endsWith('tb.vhdl')) {
+        filename = 'uploads/' + filename;
+    }
+
     const filepath = path.join(__dirname, filename);
 
     console.log(filepath);
