@@ -16,8 +16,22 @@ def generate_testbench(csv_file, entity_name, output_file=None):
         rows = list(reader)
     
     # Identifica entradas e saídas
-    inputs = header[:-1]  # Todas as colunas exceto a última
-    outputs = header[-1:]  # Última coluna é a saída (ajustar para múltiplas)
+    # Assume que as primeiras colunas são entradas e as últimas são saídas
+    # Ou usa a convenção: colunas que começam com "input_" são entradas
+    inputs = []
+    outputs = []
+    
+    for col in header:
+        col_clean = col.strip()
+        if col_clean.startswith('input_') or col_clean.startswith('in_') or col_clean.startswith('a') or col_clean.startswith('b'):
+            inputs.append(col_clean)
+        else:
+            outputs.append(col_clean)
+    
+    # Se não encontrou entradas pelo nome, assume que as primeiras N-1 são entradas
+    if not inputs:
+        inputs = header[:-1]
+        outputs = header[-1:]
     
     # Nome do testbench
     tb_name = f"{entity_name}_tb"
@@ -58,31 +72,42 @@ def generate_testbench(csv_file, entity_name, output_file=None):
     vhdl.append("    process")
     vhdl.append("    begin")
     vhdl.append("        -- Testa todas as combinações da tabela verdade")
+    vhdl.append("        -- ATENÇÃO: Apenas as entradas são atribuídas. As saídas são apenas verificadas.")
     
     # Gera os testes
+    total_tests = len(rows)
     for i, row in enumerate(rows, 1):
         values = [v.strip() for v in row]
         
-        # Aplica os estímulos
+        # Aplica os estímulos APENAS nas entradas
         stim = []
         for idx, sig in enumerate(inputs):
-            stim.append(f"{sig} <= '{values[idx]}'")
+            if idx < len(values):
+                stim.append(f"{sig} <= '{values[idx]}'")
         stim_str = "; ".join(stim)
         
-        # Verifica todas as saídas
-        for idx, sig in enumerate(outputs):
-            expected = values[-1]  # Última coluna
+        # Cria descrição do teste
+        test_desc = []
+        for idx, sig in enumerate(header):
+            if idx < len(values):
+                test_desc.append(f"{sig}={values[idx]}")
         
         vhdl.append("")
-        vhdl.append(f"        -- Teste {i}: {' '.join([f'{sig}={values[idx]}' for idx, sig in enumerate(header)])}")
+        vhdl.append(f"        -- Teste {i}: {' '.join(test_desc)}")
         vhdl.append(f"        {stim_str};")
-        vhdl.append("        wait for 10 ns;")
         
-        # Verifica todas as saídas
+        # Só espera 10ns se NÃO for o último teste
+        if i < total_tests:
+            vhdl.append("        wait for 10 ns;")
+        else:
+            vhdl.append("        wait for 10 ns;  -- Último teste, espera antes de verificar")
+        
+        # Verifica APENAS as saídas (NÃO atribui valores a elas)
         for idx, sig in enumerate(outputs):
-            expected_idx = len(inputs) + idx
-            if expected_idx < len(values):
-                expected = values[expected_idx]
+            # Encontra o índice correto para a saída no CSV
+            output_idx = header.index(sig) if sig in header else -1
+            if output_idx >= 0 and output_idx < len(values):
+                expected = values[output_idx]
                 vhdl.append(f"        assert ({sig} = '{expected}')")
                 vhdl.append(f"            report \"Falha no teste {i}: {sig} deveria ser {expected} mas foi \" & std_logic'image({sig})")
                 vhdl.append("            severity error;")
@@ -101,6 +126,8 @@ def generate_testbench(csv_file, entity_name, output_file=None):
     
     print(f"Testbench gerado: {output_file}")
     print(f"   {len(rows)} testes gerados a partir de {csv_file}")
+    print(f"   Entradas identificadas: {', '.join(inputs)}")
+    print(f"   Saídas identificadas: {', '.join(outputs)}")
 
 def extract_entity_name(file_path):
     """
@@ -127,6 +154,7 @@ if __name__ == "__main__":
     
     # Extrai o nome da entidade do arquivo
     entity_name = extract_entity_name(entity_file)
-    print(entity_name)
+    print(f"Nome da entidade extraído: {entity_name}")
+    
     # Gera o testbench com o nome extraído
     generate_testbench(csv_file, entity_name)
