@@ -111,7 +111,7 @@ def extract_entity_name(file_path):
     base_name = os.path.basename(file_path)
     
     # Remove extensão (.vhd, .vhdl, .v)
-    base_name = base_name.replace('.vhd', '').replace('.vhdl', '').replace('.v', '')
+    base_name = base_name.replace('.vhdl', '').replace('.vhd', '').replace('.v', '')
     
     return base_name
 

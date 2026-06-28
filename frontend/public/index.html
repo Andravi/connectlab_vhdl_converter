@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executor Python</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📄 Executor de Comandos Python</h1>
+
+        <!-- Upload de Arquivo -->
+        <div class="section">
+            <h2>1. Upload de Arquivo JSON</h2>
+            <div class="upload-area">
+                <form id="uploadForm">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fileInput" accept=".json,.simulation" required>
+                        <label for="fileInput">Escolher arquivo JSON</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Executar Comando
+                    </button>
+                </form>
+            </div>
+            <div id="fileInfo" class="file-info"></div>
+        </div>
+
+        <div class="section">
+            <h2>2. Gerar Testbench (VHDL + CSV)</h2>
+            <div class="upload-area">
+                <form id="tbForm">
+                    <div class="file-input-wrapper">
+                        <label for="vhdlInput">Arquivo VHDL (.vhdl)</label>
+                        <input type="file" id="vhdlInput" accept=".vhdl" required>
+                    </div>
+                    <div class="file-input-wrapper">
+                        <label for="csvInput">Arquivo CSV (.csv)</label>
+                        <input type="file" id="csvInput" accept=".csv" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Gerar Testbench
+                    </button>
+                </form>
+            </div>
+            <div id="tbFileInfo" class="file-info"></div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="section" id="resultsSection">
+            <h2>3. Resultados</h2>
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Executando comando...</p>
+            </div>
+            <div id="resultContainer">
+                <div id="resultOutput" class="result-output"></div>
+                <div id="resultActions" class="result-actions"></div>
+            </div>
+        </div>
+
+        <!-- Arquivos Gerados -->
+        <div class="section">
+            <h2>4. Arquivos Gerados</h2>
+            <div id="fileList" class="file-list">
+                <button onclick="refreshFiles()" class="btn btn-secondary">Atualizar Lista</button>
+                <div id="filesContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
