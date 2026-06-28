@@ -67,7 +67,9 @@ def json_to_vhdl(input_json: str):
         needs_signal.add(gid)
 
     # Gerar entity
-    entity_name = data.get('title', 'circuito').replace(' ', '_')
+#    entity_name = data.get('title', 'circuito').replace(' ', '_')
+    entity_name = input_json.split("/")[-1][:-5]
+
     vhdl = f"library ieee;\n"
     vhdl += f"use ieee.std_logic_1164.all;\n\n"
     vhdl += f"entity {entity_name} is\n"
