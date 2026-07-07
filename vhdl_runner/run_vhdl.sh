@@ -11,7 +11,7 @@ NC='\033[0m'
 
 # Configuração
 WAVE_FILE="waves.vcd"
-STD="08"
+STD="19"
 
 # Mostrar ajuda
 show_help() {
